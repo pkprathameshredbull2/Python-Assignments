@@ -1,0 +1,496 @@
+200)  How to check user input is empty in Python ?
+
+Example A)
+
+import time
+import os
+
+def enter_something1() :
+    entry = ""
+    data = input("Enter something : ")
+    if entry == data :
+        print("You need to enter something")
+    else :
+        #print("You have entred below line\n".format(data))
+        print(f"You have entred below line\n {data}")
+
+enter_something1()
+
+Example B)
+
+import time
+import os
+
+def enter_something2():
+    entry = input("Please eneter the something to write : ")
+    if not entry :
+        print("You have not write anything , please write something.")
+    else :
+        print(f"You have entered the below line as :\n {entry}")
+
+enter_something2()
+
+
+######################################################################################################
+
+201)  PYTHON OS.WALK Example : How to Verify if Path Exists in Python 2023 : 
+How to find the files fro specific 
+
+
+import time
+import os
+
+def path_checker():
+    path_name=input("Please enter the path to check : ")
+    if os.path.exists(path_name) :
+        os.chdir(path_name)
+
+        for file_name in os.walk(path_name) :
+            print(f"{file_name}\n")
+
+    else :
+        print("Path does not exists or path name is mailformed.")
+
+
+path_checker()
+
+
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+Please enter the path to check : /home/hp//Desktop/AWS CLP
+('/home/hp//Desktop/AWS CLP', [], ['AWS Certified Cloud Practitioner Slides v38.pdf', 'code_v2024-12-24.zip'])
+
+
+Process finished with exit code 0
+
+######################################################################################################
+
+202)  Python String Find Method 
+
+
+Example A)
+
+def find_string1() :
+    str1 = "This is my String"
+    result = str1.find("St")
+    print(result)
+
+find_string1()
+
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+11
+
+
+Example B)
+
+def find_string2() :
+    string_example = "This is a first String."
+    str_find = input("Enter the substring of string which need to find? ")
+    result = string_example.find(str_find)
+    print(result)
+
+find_string2()
+
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+Enter the substring of string which need to find? St
+16
+
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+Enter the substring of string which need to find? Prathamesh
+-1  ----> Means substring not present.
+
+
+######################################################################################################
+
+203)  How top EXTRACT DATA from TXT file in Python 
+
+import os
+import time
+import re
+
+def extract_regex() :
+    path_name = "/home/hp//Desktop/AWS CLP"
+    os.chdir(path_name)
+    print(f"Your current path is now \"{path_name}\", now we are starting to extracting the files.")
+    time.sleep(1)
+    file_name = open("parth.txt" ,"r")
+    for line in file_name :
+        if re.search(r"[RB21]" , line) :
+            print(f"Yes found here ....{line}")
+        else :
+            print("Nothing found")
+
+extract_regex()
+
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+Your current path is now "/home/hp//Desktop/AWS CLP", now we are starting to extracting the files.
+Nothing found
+Nothing found
+Yes found here ....Redbull Racing RB21 Max Verstappen
+
+Yes found here ....Redbull Racing RB21 Yuki Tsunoda
+
+Nothing found
+Yes found here ....Mclaren F1 MCL39 Lano Norris
+
+Yes found here ....Mclaren F1 MCL39 Oscar Piastri 
+
+Nothing found
+Yes found here ....Scuderia Ferrari F1 SF Chalres Leclerc
+
+Yes found here ....Scuderia Ferrari F1 SF Lewis Hmailton 
+
+
+Process finished with exit code 0
+
+
+
+OR 
+
+
+
+import os
+import time
+import re
+
+def extract_regex() :
+    #path_name = "/home/hp//Desktop/AWS CLP"
+    path_name = input("Enter the path :")
+    os.chdir(path_name)
+    print(f"Your current path is now \"{path_name}\", now we are starting to extracting the files.")
+    time.sleep(1)
+    #file_name = open("parth.txt" ,"r")
+    file_name = open(input("Enter the name of file :") , "r")
+    for line in file_name :
+        if re.search(r"[RB21]" , line) :
+            print(f"Yes found here ....{line}")
+        else :
+            print("Nothing found")
+
+extract_regex()
+
+
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+Enter the path :/home/hp//Desktop/AWS CLP
+Your current path is now "/home/hp//Desktop/AWS CLP", now we are starting to extracting the files.
+Enter the name of file :parth.txt
+Nothing found
+Nothing found
+Yes found here ....Redbull Racing RB21 Max Verstappen
+
+Yes found here ....Redbull Racing RB21 Yuki Tsunoda
+
+Nothing found
+Yes found here ....Mclaren F1 MCL39 Lano Norris
+
+Yes found here ....Mclaren F1 MCL39 Oscar Piastri 
+
+Nothing found
+Yes found here ....Scuderia Ferrari F1 SF Chalres Leclerc
+
+Yes found here ....Scuderia Ferrari F1 SF Lewis Hmailton 
+
+
+Process finished with exit code 0
+
+
+
+
+######################################################################################################
+
+204)  How to check if String Contains a Number in Python 
+
+import os
+import time
+
+def check_string_type(input_string) :
+    if input_string.isalpha() :
+        return "This is Complete String"
+    elif input_string.isdigit() :
+        return "This is a Number"
+    else :
+        return"Either a Mixture or Something else."
+
+string_input = input("Enter Something : ")
+result = check_string_type(string_input)
+
+print(f"This input is : {result}")
+
+Output : 
+Enter Something : Max33@redbull
+This input is : Either a Mixture or Something else.
+
+Enter Something : Prathamesh
+This input is : This is Complete String
+
+Enter Something : 8097748413
+This input is : This is a Number
+
+
+######################################################################################################
+
+205)  Python User Defined exception Error Code : 
+
+
+import os
+import time
+
+def custom_exception() :
+    path_name = "/home/hp//Desktop/AWS CLP"
+    os.chdir(path_name)
+
+    try :
+        with open(input("Enter the name of file: "), "r") as file_object :
+            contents = file_object.read()
+            print(contents)
+
+    except FileNotFoundError :
+        print("Error occured file not found.")
+
+    except Exception as e :
+        print(f"An unexpected error occured : {e} ")
+
+custom_exception()
+
+Output :
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+Enter the name of file: parth.txt
+
+
+Redbull Racing RB21 Max Verstappen
+Redbull Racing RB21 Yuki Tsunoda
+
+Mclaren F1 MCL39 Lano Norris
+Mclaren F1 MCL39 Oscar Piastri 
+
+Scuderia Ferrari F1 SF Chalres Leclerc
+Scuderia Ferrari F1 SF Lewis Hmailton 
+
+
+Process finished with exit code 0
+
+Output :
+Enter the name of file: info.txt
+Error occured file not found.
+
+
+
+######################################################################################################
+
+206)  How to Slice Dictionary in Python ?
+
+def dict_slice() :
+    my_details = {
+        "first_name" : "Prathamesh",
+        "middle_name" : "Vijay" ,
+        "last_name" : "Kadam" ,
+        "Address" : "A/806 Cerez Malpani HSG SOC ,near G K Arcos , Gaikwad Nagar ,Punawale, Pune 411088",
+        "Age" : 34 ,
+        "Mobile_Number" : 8097748413
+    }
+
+    key_slice = ["first_name",
+                 "middle_name",
+                 "last_name"]
+
+    sliced_dict = { key : my_details[key] for key in key_slice}
+    print(sliced_dict)
+	
+# How <sliced_dict = { key : my_details[key] for key in key_slice} > works ? , it is as below
+    for key in key_slice :
+        print(f"{key} : {my_details[key]}")
+
+dict_slice()
+
+Output :
+{'first_name': 'Prathamesh', 'middle_name': 'Vijay', 'last_name': 'Kadam'}
+first_name : Prathamesh
+middle_name : Vijay
+last_name : Kadam
+
+
+######################################################################################################
+
+207)  
+
+How to open text file through Python ?
+
+
+import os
+
+def open_text_file() :
+    path_name="/home/hp//Desktop/AWS CLP/parth.txt"
+    os.startfile(path_name)
+
+open_text_file()
+
+
+######################################################################################################
+
+
+
+
+######################################################################################################
+
+214)  Python Count Method Code Example 2024
+
+my_text ="""
+The medium tire worked well in Imola and Verstappen also considered using that tire. 
+But: “No, I didn't want to do that, because of course, I want the right tyre for tomorrow. 
+I've been in the front a few times this year and haven't got much from it. 
+We need to make sure we score points in the race.”
+That it's a circuit where overtaking is difficult, doesn't bother the reigning champion: “If you have enough speed, 
+you can overtake.” Moreover, at least Lando Norris's McLaren is behind Verstappen in fourth place. 
+“That's obviously positive. But the positive thing about today was actually that we modified the car 
+and it felt better.”
+"""
+
+def number_occurences() :
+    substr_test = input("Enter the String : ")
+    word_count = my_text.count(substr_test)
+    print(f"There are {word_count} occuerences for word {substr_test}")
+
+number_occurences()
+
+Output :
+Enter the String : positive
+There are 2 occuerences for word positive
+
+Enter the String : Verstappen
+There are 2 occuerences for word Verstappen
+
+######################################################################################################
+
+
+215)   Python List Constructor
+
+def create_list() :
+    entry = input("Create a List [y or n] ?")
+    if entry.lower() == 'y' :
+        my_list = list()
+
+        append_list_var = input("Enter the name :")
+
+        while append_list_var != "exit" :
+            my_list.append(append_list_var)
+            append_list_var=input("Next : ")
+
+        print("Exited list update")
+        print(my_list)
+
+create_list()
+
+Create a List [y or n] ?y
+Enter the name :Sanjay More
+Next : Charul Patel
+Next : Shodhan Joshi
+Next : Nirmal Prasad Acharya
+Next : Manoj Kumar Sahoo
+Next : Prathamesh Kadam
+Next : Laxman Naval
+Next : Chandrakant Patil
+Next : Kiran Zure
+Next : exit
+Exited list update
+['Sanjay More', 'Charul Patel', 'Shodhan Joshi', 'Nirmal Prasad Acharya', 'Manoj Kumar Sahoo', 'Prathamesh Kadam', 'Laxman Naval', 'Chandrakant Patil', 'Kiran Zure']
+
+
+######################################################################################################
+
+
+######################################################################################################
+
+
+
+
+######################################################################################################
+
+######################################################################################################
+
+
+
+######################################################################################################
+
+
+######################################################################################################
+
+237)   Python Code Example: Write List Text To Text File 2024 
+
+import os
+import time
+
+path_name = "/home/hp//Desktop/AWS CLP"
+os.chdir(path_name)
+message_store_list_var = []
+
+def auto_write() :
+    message = input("Enter the Message : ")
+    while (message == "exit") :
+        message_store_list_var.append(message)
+
+        with open("test.txt" , "w") as file_object:
+            file_object.write(str(message_store_list_var))
+            print("Message written!!!!!")
+
+auto_write()
+
+
+
+
+
+######################################################################################################
+
+249)  Python Tutorial: Find Key-Value Pairs in a Dictionary Using Input 2025
+
+import os
+
+names = {
+    "prathamesh" : 34 ,
+    "sanjay" : 37 ,
+    "rajendra" : 43 ,
+    "amey" : 45 ,
+    "manoj" : 38
+}
+
+def search_name() :
+    entry = input("Enter the name to search : ").lower()
+
+    if entry in names :
+        print(f"Found {entry} and age is {names[entry]}")
+    else :
+        print("Not Found....")
+
+search_name()
+
+
+Enter the name to search : amey
+Found amey and age is 45
+
+
+
+
+import os
+
+names = {
+    "prathamesh" : 34 ,
+    "sanjay" : 37 ,
+    "rajendra" : 43 ,
+    "amey" : 45 ,
+    "manoj" : 38
+}
+
+def search_name() :
+    entry = input("Enter the name to search : ").lower()
+
+    if entry in names :
+        print(entry ,names[entry])
+    else :
+        print("Not Found")
+
+search_name()
+
+
+Enter the name to search : sanjay
+sanjay 37
+
+
+

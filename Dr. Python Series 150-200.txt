@@ -1,0 +1,883 @@
+150)  Python Beginners Programming - Upper Lower Case String Function Example
+
+import time
+
+var_str = 'Prathamesh Vijay Kadam'
+
+def upper_case() :
+    print(var_str.upper())
+    time.sleep(1)
+    lower_case()
+
+def lower_case() :
+    print(var_str.lower())
+    time.sleep(1)
+    caps()
+
+def caps() :
+    print(var_str.capitalize())
+    time.sleep(1)
+    upper_case()
+
+
+upper_case()
+
+Output :
+PRATHAMESH VIJAY KADAM
+prathamesh vijay kadam
+Prathamesh vijay kadam
+PRATHAMESH VIJAY KADAM
+prathamesh vijay kadam
+Prathamesh vijay kadam
+PRATHAMESH VIJAY KADAM
+
+It will run through infinite loop, then break the output or loop.
+
+
+
+151)   Python Programming Beginners - Create Multiple Folders Windows 2023
+
+import os
+def multiple_directories() :
+    user_path = "/home/hp//Desktop/AWS CLP"
+    directories = ["folder1","folder2","folder3"]
+
+    for dirs in directories :
+        path = os.path.join(user_path , dirs)
+        os.makedirs(path, exist_ok=True)
+
+multiple_directories()
+
+
+152)   Python Programming - How To Open & Display Image Files 2023 
+
+import os
+from PIL import Image
+
+def show_image1() :
+    path = ("/home/hp/Downloads/Tiger_II_La_Gleize2008.jpg")
+    image = Image.open(path)
+    image.show()
+
+def show_image2() :
+    path = ("/home/hp/Downloads/Dassault-Rafale-Fighter-from-France-1.jpg")
+    os.system(f"start {path}")
+
+show_image1()
+show_image2()
+
+
+
+153)   Python Programming - Rename Files Using Startswith 2023 
+
+import os
+
+def rename_files() :
+    path = "/home/hp/Desktop/AWS CLP"
+    os.chdir(path)
+    list_dir = os.listdir(path)
+    print(list_dir)
+
+    for test_file in list_dir :
+        if test_file.startswith("test.txt") :
+            print("Changing file name")
+            os.rename("test.txt" , "test_sample_test.txt")
+
+rename_files()
+
+Output :
+['AWS Certified Cloud Practitioner Slides v38.pdf', 'code_v2024-12-24.zip', 'test.txt', 'parth.txt']
+Changing file name
+
+
+154)   Python Programming - List All Files In A Windows Folder 2023
+
+
+import os
+def list_all_files() :
+    path = "/home/hp/Desktop/AWS CLP/"
+    os.chdir(path)
+    list_dir = os.listdir(path)
+
+    for f in list_dir :
+        print(f"{f}")
+
+list_all_files()
+
+
+
+Output : 
+AWS Certified Cloud Practitioner Slides v38.pdf
+code_v2024-12-24.zip
+test_sample_test.txt
+parth.txt
+
+
+155)   Python Programming - Loop Through Dictionary Update Keys 2023
+
+
+import time
+
+countries = {"UK" : "English" ,
+             "France" : "French" ,
+             "Spain" : "Spanish" ,
+             }
+
+print(countries)
+
+def access_dic() :
+    for key , value in countries.items() :
+        print(f"The country is {key} and language is {value}")
+
+def updating_dic() :
+    print("Updating ................")
+    time.sleep(2)
+    countries["UK"] = "Marathi"
+    countries["France"] = "Hindi"
+    countries["Spain"] = "Kannada"
+    print(countries)
+
+access_dic()
+print("===============================")
+updating_dic()
+
+
+
+Output : 
+{'UK': 'English', 'France': 'French', 'Spain': 'Spanish'}
+The country is UK and language is English
+The country is France and language is French
+The country is Spain and language is Spanish
+===============================
+Updating ................
+{'UK': 'Marathi', 'France': 'Hindi', 'Spain': 'Kannada'}
+
+
+
+
+
+156)   Python Programming - os.walk - List Folder & Directories 2023
+
+
+import os
+
+def walk_directories() :
+    root_path = "/home/hp/Desktop/AWS CLP"
+
+    for root ,dirs ,files in os.walk(root_path) :
+        print("Root .............", root)
+        print("Directories........", dirs)
+        print("Files..............", files)
+
+walk_directories()
+
+
+Output : 
+
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+Root ............. /home/hp/Desktop/AWS CLP
+Directories........ ['folder1', 'folder3', 'folder2']
+Files.............. ['AWS Certified Cloud Practitioner Slides v38.pdf', 'code_v2024-12-24.zip', 'test_sample_test.txt', 'parth.txt']
+Root ............. /home/hp/Desktop/AWS CLP/folder1
+Directories........ []
+Files.............. []
+Root ............. /home/hp/Desktop/AWS CLP/folder3
+Directories........ []
+Files.............. []
+Root ............. /home/hp/Desktop/AWS CLP/folder2
+Directories........ []
+Files.............. []
+
+Process finished with exit code 0
+
+
+
+157)   Python Programming - Beginners Regex Findall String Search 2023
+
+
+import re
+text = []
+def seacrh_word() :
+    print("Enter the text : ")
+    entry1 = input("""Enter the sentences below :\n""")
+    text.append(entry1)
+    print(text)
+
+    print("Now Search the text chunk : ")
+    entry2 = input("Enter the word to search : ")
+    matches = re.findall(entry2 , " ".join(text))
+
+    if matches :
+        print("Word Found ", matches)
+    else :
+        print("Not found")
+
+seacrh_word()
+
+Output : 
+Enter the text : 
+Enter the sentences below :
+1241|Escan|57212|Indusind Bank|17688|Nelito System|CI8414|Clover Infotech Pvt Ltd|26171626|Vodafone Intelligent Services
+['1241|Escan|57212|Indusind Bank|17688|Nelito System|CI8414|Clover Infotech Pvt Ltd|26171626|Vodafone Intelligent Services']
+Now Search the text chunk : 
+Enter the word to search : 26171626
+Word Found  ['26171626']
+
+
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+Enter the text : 
+Enter the sentences below :
+1241|Escan|57212|Indusind Bank|17688|Nelito System|CI8414|Clover Infotech Pvt Ltd|26171626|Vodafone Intelligent Services
+['1241|Escan|57212|Indusind Bank|17688|Nelito System|CI8414|Clover Infotech Pvt Ltd|26171626|Vodafone Intelligent Services']
+Now Search the text chunk : 
+Enter the word to search : BNP
+Not found
+
+Process finished with exit code 0
+
+
+
+158)   Python Programming - Count Names In String 2023
+
+names =["joe","joe","joe","Bill","Sam","Pete","Sam"]
+
+def count_names() :
+    name = input("Enter a name : ")
+    count = names.count(name)
+    print(f"There are {count} ocurrences of {name} in the list")
+
+count_names()
+
+
+Output :
+
+Enter a name : joe
+There are 3 ocurrences of joe in the list
+
+
+
+
+159)   Python Programming - Loop Through Update Dictionary 2023
+
+import time
+
+countries_with_languages ={
+    "UK" : "English" ,
+    "France" : "French" ,
+    "Germany" : "Germans"
+}
+
+def access_dic() :
+    for key ,value in countries_with_languages.items() :
+        print(f"If country is {key} then language must be {value}.")
+
+access_dic()
+
+def updating_dic() :
+    time.sleep(2)
+    print("Before updating ....\n", countries_with_languages)
+    time.sleep(2)
+    countries_with_languages["UK"] = "Marathi"
+    countries_with_languages["France"] = "Kannada"
+    countries_with_languages["Germany"] = "Gujarati"
+    print("After updating......\n", countries_with_languages)
+
+updating_dic()
+
+Output :
+If country is UK then language must be English.
+If country is France then language must be French.
+If country is Germany then language must be Germans.
+Before updating ....
+ {'UK': 'English', 'France': 'French', 'Germany': 'Germans'}
+After updating......
+ {'UK': 'Marathi', 'France': 'Kannada', 'Germany': 'Gujarati'}
+
+
+160)   Python Programming Tutorial - Creating Multiple Text Files 2023
+
+
+import os
+def creating_multiple_files() :
+    path = "/home/hp/Desktop/AWS CLP/Test_folder"
+    os.chdir(path)
+    for i in range(1,11) :
+        file_name = (f"file{i}.txt")
+        with open(file_name , "w") as file_object :
+            file_object.write("""Prathamesh Vijay Kadam|Vijay Laxman Kadam|8097748413|9821382723""")
+
+creating_multiple_files()
+
+
+
+import os
+
+files_list = ["Package" ,"Orders"]
+def creating_multiple_files() :
+    path = "/home/hp/Desktop/AWS CLP/Test_folder"
+    os.chdir(path)
+    for i in range(len(files_list)) :
+        file_name = (f"file{i}.txt")
+        with open(file_name , "w") as file_object :
+            file_object.write("""Prathamesh Vijay Kadam|Vijay Laxman Kadam|8097748413|9821382723""")
+
+creating_multiple_files()
+
+
+161)   Python Beginners - Make Directory Check If Directory Exists 2023
+
+A) first print path :
+
+import os
+import time
+
+def make_directory() :
+    path = "/home/hp/Desktop/AWS CLP/Test_folder"
+    os.chdir(path)
+    print(path)
+
+make_directory()
+
+Output :
+/home/hp/Desktop/AWS CLP/Test_folder
+
+
+B) 
+
+import os
+import time
+
+def make_directory() :
+    path = "/home/hp/Desktop/AWS CLP/Test_folder"
+    os.chdir(path)
+    folder1 = input("Make Directory: ")
+    if os.path.exists(folder1) :
+        print("Directory already exists")
+        make_directory()
+    else :
+        os.mkdir(folder1)
+        print("Directory created")
+
+make_directory()
+
+
+
+Output :
+
+Make Directory: redbull
+Directory created
+
+
+Make Directory: redbull
+Directory already exists
+Make Directory: max
+Directory created
+
+
+
+162)    Python Beginners - Print Directory Files & Append To List 2023
+
+
+import time
+import os
+
+path = "/home/hp/Desktop/AWS CLP/"
+root_dirs = []
+root_files = []
+
+def loop_directory() :
+    for root ,dirs ,files in os.walk(path) :
+        root_dirs.append(root)
+        root_dirs.extend(dirs)
+        root_files.extend(files)
+
+        print("Checking root_dirs and root files lists.")
+        time.sleep(2)
+        check_lists()
+        break
+
+def check_lists() :
+    time.sleep(2)
+    print(root_dirs)
+    print(root_files)
+
+loop_directory()
+
+Output : 
+Checking root_dirs and root files lists.
+['/home/hp/Desktop/AWS CLP/', 'folder1', 'Test_folder', 'folder3', 'folder2']
+['AWS Certified Cloud Practitioner Slides v38.pdf', 'code_v2024-12-24.zip', 'test_sample_test.txt', 'parth.txt']
+
+
+163)   Python On Windows (Easy Beginners Regex) Tutorial 2023
+
+
+import re
+
+story = "a very short story"
+
+def search_string() :
+    entry = input("Search : ")
+    matches = re.findall(entry ,story)
+
+    if matches :
+        print(f"{matches} found.")
+    else :
+        print(f"{matches} not found.")
+
+search_string()
+
+
+Output : 
+Search : very
+['very'] found.
+
+
+
+164)   Python Programming - Change Rename File Extension 2023
+
+
+
+import os
+def change_file_extention() :
+    path = "/home/hp/Desktop/AWS CLP/Test_folder/"
+    os.chdir(path)
+    my_file = "file0.txt"
+    new_extention = ".xml"
+
+    if my_file.endswith(".txt") :
+        my_new_file_extention = os.path.splitext(my_file)[0] + new_extention
+        os.rename(my_file ,my_new_file_extention)
+        print(f"New extention is {new_extention}")
+    else :
+        print("An error has occured.")
+
+change_file_extention()
+
+Output : 
+
+New extention is .xml
+
+
+
+
+165)   Python Beginners EASY Regex Code Example 2023
+
+
+import re
+
+text = []
+
+def search_word() :
+    print("Enter text : ")
+    entry1 = input("Enter the sentence : \n")
+    text.append(entry1)
+
+    print("Search Text :")
+    entry2 = input("Enter a word : ")
+    matches = re.findall(entry2, " ".join(text))
+
+    if matches :
+        print("Word found : ", matches)
+    else:
+        print("Word not found.")
+
+search_word()
+
+Output : 
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+Enter text : 
+Enter the sentence : 
+Prathamesh Vijay Kadam | 8097748413 | Pune | A806 Cereza Malpani HSG SOC, Punawale | 411033 |Pune |Maharashtra
+Search Text :
+Enter a word : Pune
+Word found :  ['Pune', 'Pune']
+
+Process finished with exit code 0
+
+
+166)    Python Lambda Function Beginners Tutorial Examples 2023
+
+def add_numbers() :
+    numbers = lambda a : a + 20
+    print(numbers(10))
+
+def maths() :
+    numbers = lambda a ,b ,c ,d : a*b+c-d
+    print(numbers(100,1,3,99))
+
+add_numbers()
+maths()
+
+Output :
+30
+4
+
+
+167)    Python On Windows - Loop Through A Dictionary Tutorial 2023
+
+my_dict = {"dave" : 56 , "joe" : 78 , "pete" : 99}
+
+def loop_through() :
+    entry = input("Enter a name : ")
+    if entry in my_dict :
+        print(f"{entry} has been found.")
+    else :
+        print(f"{entry} has not been found!.")
+
+loop_through()
+
+Output :
+Enter a name : pete
+pete has been found.
+
+
+168)   4 Essential Python Dictionary Methods For Beginners 2023
+
+my_dict = {
+    "steve" : 88 ,
+    "bill" : 55 ,
+    "paul" : 66
+}
+
+def print_dict() :
+    print(my_dict)
+
+def dict_length() :
+    print(len(my_dict))
+
+def add_key_value() :
+    key = input("Enter the Key : ")
+    value = input("Enter the value of key : ")
+    my_dict[key] = value
+    print(my_dict)
+
+def delete_key() :
+    key = input("Enter the key to delete from dictionary : ")
+    if (key in my_dict) :
+        del my_dict[key]
+        print(my_dict)
+    else :
+        print("Key is not found.")
+        delete_key()
+
+print_dict()
+dict_length()
+add_key_value()
+delete_key()
+
+Output : 
+{'steve': 88, 'bill': 55, 'paul': 66}
+3
+Enter the Key : Lulu
+Enter the value of key : 34
+{'steve': 88, 'bill': 55, 'paul': 66, 'Lulu': '34'}
+Enter the key to delete from dictionary : Lulu
+{'steve': 88, 'bill': 55, 'paul': 66}
+
+
+169)   Python Beginners Programming os.abort Module 2023
+
+
+import os
+import time
+
+def simple_program() :
+    for x in range(1,100) :
+        if (x == 20) :
+            time.sleep(1)
+            os.abort()
+        print(x)
+
+simple_program()
+
+
+Output :
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+
+
+
+170)    Python Lists: 14 ESSENTIAL Methods For Beginners 2023 
+
+Programe A) Creating list , dispaly_list , append or add item at the end.
+
+my_list = ["Redbull","Mclaren","Mercedes AMG","Aston Martin","Williams","Ferrari","Honda"]
+
+def dispaly_list() :
+    print(my_list)
+
+dispaly_list()
+
+def list_len() :
+    print(len(my_list))
+
+list_len()
+
+
+def append_list() :
+    name1 = "sauber"
+    name2 = "Hass"
+    my_list.append(name1)
+    my_list.append(name2)
+    print(my_list)
+
+append_list()
+
+Output :
+['Redbull', 'Mclaren', 'Mercedes AMG', 'Aston Martin', 'Williams', 'Ferrari', 'Honda']
+7
+['Redbull', 'Mclaren', 'Mercedes AMG', 'Aston Martin', 'Williams', 'Ferrari', 'Honda', 'sauber', 'Hass']
+
+
+
+Programe B) Looping through list and element search.
+
+
+my_list = ['Redbull', 'Mclaren', 'Mercedes AMG', 'Aston Martin', 'Williams', 'Ferrari', 'Honda', 'sauber', 'Hass']
+
+def loop_list() :
+    print("Looping through the list : \n ")
+    for x in my_list :
+        print(x)
+
+def list_search() :
+    print("\n")
+    name_temp = "Honda"
+    if name_temp in my_list :
+        print("yes found")
+    else :
+        print("not found")
+
+
+loop_list()
+list_search()
+
+Output : 
+Looping through the list : 
+ 
+Redbull
+Mclaren
+Mercedes AMG
+Aston Martin
+Williams
+Ferrari
+Honda
+sauber
+Hass
+
+
+Programe C) Making empty list 
+
+my_list = ['Redbull', 'Mclaren', 'Mercedes AMG', 'Aston Martin', 'Williams', 'Ferrari', 'Honda', 'sauber', 'Hass']
+
+def clear_list() :
+    my_list.clear()
+    print("List is now empty.....", my_list)
+
+clear_list()
+
+Output : 
+List is now empty..... []
+
+
+Programe D)  Reverse and Insert 
+
+my_list = ['Redbull', 'Mclaren', 'Mercedes AMG', 'Aston Martin', 'Williams', 'Ferrari', 'Honda', 'sauber', 'Hass']
+
+def reversing_list() :
+    print("Before reversing the list elements : \n", my_list)
+    my_list.reverse()
+    print("List elements has been reversed : \n", my_list)
+
+reversing_list()
+
+def inserting_new_element() :
+    my_list.insert(7 , "Audi")
+    print("After inserting new element : \n", my_list)
+
+inserting_new_element()
+
+Output : 
+Before reversing the list elements : 
+ ['Redbull', 'Mclaren', 'Mercedes AMG', 'Aston Martin', 'Williams', 'Ferrari', 'Honda', 'sauber', 'Hass']
+List elements has been reversed : 
+ ['Hass', 'sauber', 'Honda', 'Ferrari', 'Williams', 'Aston Martin', 'Mercedes AMG', 'Mclaren', 'Redbull']
+After inserting new element : 
+ ['Hass', 'sauber', 'Honda', 'Ferrari', 'Williams', 'Aston Martin', 'Mercedes AMG', 'Audi', 'Mclaren', 'Redbull']
+
+
+Program E) 
+
+
+my_list1 = ["Prathamesh","Vijay","Kadam","Priya","Aditya","Amruta"]
+my_list2 = ["Prathamesh","Vijay","Kadam","Priya","Aditya","Shraddha","Prachiti"]
+my_list3 = ["Prathamesh","Vijay","Kadam","Priya","Aditya","Rutuja","Amruta"]
+
+def extending_list() :
+    my_list1.extend(my_list2)
+    print(my_list1)
+
+extending_list()
+
+def remove_specific_list_item() :
+    my_list1.remove("Amruta")
+    print(my_list1)
+
+remove_specific_list_item()
+
+def pop_list_specific_item() :
+    remove_item = my_list3.pop(5)
+    print("The removed item is ",remove_item)
+    print(my_list3)
+
+pop_list_specific_item()
+
+def pop_list_remove_last_item() :
+    remove_item = my_list3.pop()
+    print("The removed item is ", remove_item)
+    print(my_list3)
+
+pop_list_remove_last_item()
+
+
+Output : 
+
+['Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Amruta', 'Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Shraddha', 'Prachiti']
+['Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Shraddha', 'Prachiti']
+
+The removed item is  Rutuja
+['Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Amruta']
+
+The removed item is  Amruta
+['Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya']
+
+
+Program F) 
+
+
+list_full_name = ["Prathamesh","Vijay","Kadam","Priya"]
+list_contact = ["8097748413","9821382723","982187110"]
+
+def list_slicing() :
+    actual_name_test1 = list_full_name[0:2]
+    actual_contact_test2 = list_contact[0]
+    actaul_name_contact_number = list_full_name[0:2],list_contact[0]
+    print(actaul_name_contact_number)
+    
+list_slicing()
+
+Output : 
+(['Prathamesh', 'Vijay'], '8097748413')
+
+
+Program G) 
+
+my_list1 = ['Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Amruta', 'Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Shraddha', 'Prachiti']
+print(my_list1)
+
+def list_single_item_count() :
+    item = input("enter the list item name which you want the count : ")
+    my_list1.count(item)
+    print("The number of occurtences are ",my_list1.count(item))
+
+def sorting_list_items() :
+    print("Before Sorting -->\n", my_list1)
+    my_list1.sort()
+    print("After Sorting -->\n", my_list1)
+
+list_single_item_count()
+sorting_list_items()
+
+
+Output : 
+
+['Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Amruta', 'Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Shraddha', 'Prachiti']
+enter the list item name which you want the count : Aditya
+The number of occurtences are  2
+Before Sorting -->
+ ['Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Amruta', 'Prathamesh', 'Vijay', 'Kadam', 'Priya', 'Aditya', 'Shraddha', 'Prachiti']
+After Sorting -->
+ ['Aditya', 'Aditya', 'Amruta', 'Kadam', 'Kadam', 'Prachiti', 'Prathamesh', 'Prathamesh', 'Priya', 'Priya', 'Shraddha', 'Vijay', 'Vijay']
+
+
+
+
+175)     Mastering Python OS Module - 6 ESSENTIAL OS Module Examples 2023
+
+
+import os
+import subprocess
+
+
+def get_cwd() :
+    curent_directory = os.getcwd()
+    print("Directory : ", curent_directory)
+
+def list_files() :
+    my_dir_var = "/home/hp/Desktop/AWS CLP/Test_folder/"
+    list_dir_temp = os.listdir(my_dir_var)
+    print("Files as below: \n")
+    for file in list_dir_temp :
+        print(file)
+
+def create_directory() :
+    path = "/home/hp/Desktop/AWS CLP/Test_folder/"
+    os.chdir(path)
+    os.mkdir("Mclaren_Cheezburger")
+    print("Directory has been created.")
+
+def rename_directory() :
+    path = "/home/hp/Desktop/AWS CLP/Test_folder/"
+    os.chdir(path)
+    old_name = "Mclaren_Cheezburger"
+    new_name = "Brown_cheez_burger_with_stella"
+    os.rename(old_name,new_name)
+    print("Directory has been renamed.")
+
+def open_text_file() :
+    path = "/home/hp/Desktop/AWS CLP/Test_folder"
+    os.chdir(path)
+    file_name_temp = "file0.xml"
+    with open(file_name_temp ,"r") as file_object :
+        content = file_object.read()
+        print(content)
+
+get_cwd()
+list_files()
+#create_directory()
+#rename_directory()
+open_text_file()
+
+
+Output :
+/home/hp/PycharmProjects/pythonProject_18_FEB_2024/.venv/bin/python /home/hp/PycharmProjects/pythonProject_18_FEB_2024/test 
+Directory :  /home/hp/PycharmProjects/pythonProject_18_FEB_2024
+Files as below: 
+
+Brown_cheez_burger_with_stella
+redbull
+max
+file0.xml
+file1.txt
+Prathamesh Vijay Kadam|Vijay Laxman Kadam|8097748413|9821382723
+
+Process finished with exit code 0
+
